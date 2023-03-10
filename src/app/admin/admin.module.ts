@@ -26,6 +26,10 @@ import { MatIconModule } from '@angular/material/icon';
         path: 'movies',
         loadChildren: () => import('./movies/movies.module'),
       },
+      {
+        path: 'screening-halls',
+        loadChildren: () => import('./halls/screening-halls.module'),
+      },
     ]),
   ],
   providers: [MatSnackBar],

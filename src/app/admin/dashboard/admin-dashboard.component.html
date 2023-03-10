@@ -39,7 +39,26 @@
         >
       </li>
     </ol>
-    <div></div>
-    <router-outlet></router-outlet>
+  </div>
+  <div>
+    <h2 class="text-3xl font-bold pb-1">Sale</h2>
+    <ol class="pl-4">
+      <li>
+        <a
+          routerLink="screening-halls/add-screening-hall"
+          class="text-2xl inline-flex items-baseline font-semibold"
+          >Dodaj nową salę
+          <mat-icon class="ml-2 mt-0 text-lg">create</mat-icon></a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="screening-halls/screening-halls-list"
+          class="text-2xl inline-flex items-baseline font-semibold"
+          >Lista sal <mat-icon class="ml-2 mt-0 text-lg">list</mat-icon></a
+        >
+      </li>
+    </ol>
   </div>
 </div>
+<router-outlet></router-outlet>

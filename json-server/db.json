@@ -747,6 +747,13 @@
       "name": "Duża sala",
       "rows": 10,
       "columns": 10
+    },
+    {
+      "name": "Nowa Sala",
+      "rows": 5,
+      "columns": 5,
+      "type": "[ScreeningHalls] add new screening hall",
+      "id": 3
     }
   ],
   "watchlist": [

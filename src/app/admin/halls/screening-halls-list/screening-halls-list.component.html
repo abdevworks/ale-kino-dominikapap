@@ -1,0 +1,19 @@
+test
+<ng-container *ngIf="screeningHalls$ | async as screeningHalls; else loading">
+  <h1 class="text-3xl font-bold pb-1">Lista Sal</h1>
+  <a routerLink="/admin/screening-halls/add-screening-hall" class="text-xl inline-flex"
+    >Dodaj nową salę <mat-icon class="ml-2 text-lg">create</mat-icon></a
+  >
+
+  <ol class="pl-6 movies-list mt-4">
+    <li *ngFor="let screeningHall of screeningHalls">
+      <p class="text-xl"><b>Nazwa Sali : </b>{{ screeningHall.name }}</p>
+      <p><b>Liczba rzędów : </b>{{ screeningHall.rows }}</p>
+      <p><b>Liczba miejsc w rzędzie : </b>{{  screeningHall.columns }}</p>
+      <p><b>Liczba wszystkich miejsc : </b>{{ screeningHall.rows * screeningHall.columns }}</p>
+    </li>
+  </ol>
+</ng-container>
+<ng-template #loading>
+  <mat-progress-spinner></mat-progress-spinner>
+</ng-template>

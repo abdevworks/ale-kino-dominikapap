@@ -1,0 +1,85 @@
+<h1 class="text-5xl font-bold pb-1 my-2 text-center">Dodaj nową salę</h1>
+
+  <form
+    [formGroup]="addScreeningHallForm"
+    (ngSubmit)="onSubmit()"
+    class="flex flex-col"
+  >
+    <mat-form-field>
+      <input
+        matInput
+        appNoEmptyChars
+        placeholder="Nazwa"
+        formControlName="name"
+      />
+      <mat-error *ngIf="nameCtrl.errors">
+        <span *ngIf="nameCtrl.errors['required']"
+          >Nazwa sali jest wymaganym polem.</span
+        >
+        <span *ngIf="nameCtrl.errors['minlength']"
+          >Minimalna liczba znaków dla nazwy sali to
+          {{ nameCtrl.errors["minlength"]["requiredLength"] }}</span
+        >
+        <span *ngIf="nameCtrl.errors['maxlength']"
+          >Dopuszczalna liczba znaków dla nazwy sali to
+          {{ nameCtrl.errors["maxlength"]["requiredLength"] }}</span
+        >
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <input
+        appNumbersOnly
+        matInput
+        type="number"
+        placeholder="Liczba rzędów"
+        formControlName="rows"
+      />
+      <mat-error *ngIf="rowsCtrl.errors"
+        ><span *ngIf="rowsCtrl.errors['required']"
+          >Liczba rzędów jest wymaganym polem</span
+        ><span *ngIf="rowsCtrl.errors['min']"
+          >Minimalna liczba rzędów to
+          {{ rowsCtrl.errors["min"]["min"] }}</span
+        >
+        <span *ngIf="rowsCtrl.errors['max']"
+          >Maksymalna liczba rzędów
+          {{ rowsCtrl.errors["max"]["max"] }}</span
+        ></mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        appNumbersOnly
+        matInput
+        type="number"
+        placeholder="Liczba miejsc w rzędzie"
+        formControlName="columns"
+      />
+      <mat-error *ngIf="columnsCtrl.errors"
+        ><span *ngIf="columnsCtrl.errors['required']"
+          >Liczba miejsc w rzędzie jest wymaganym polem</span
+        ><span *ngIf="columnsCtrl.errors['min']"
+          >Minimalna liczba miejsc w rzędzie to
+          {{ columnsCtrl.errors["min"]["min"] }}</span
+        >
+        <span *ngIf="columnsCtrl.errors['max']"
+          >Maksymaln liczba miejsc w rzędzie to
+          {{ columnsCtrl.errors["max"]["max"] }}</span
+        ></mat-error
+      >
+    </mat-form-field>
+
+
+    <button
+      [disabled]="!addScreeningHallForm.valid"
+      mat-raised-button
+      color="primary"
+      class="w-36 mx-auto"
+    >
+      Dodaj salę
+    </button>
+  </form>
+
